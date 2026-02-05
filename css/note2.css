@@ -1,0 +1,26 @@
+/* CSS: 디자인 (정적 요소) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Malgun Gothic', sans-serif; background-color: #f0f2f5; padding: 20px; }
+        .container { max-width: 500px; margin: 0 auto; }
+
+        .header { background: #4CAF50; color: white; padding: 25px; border-radius: 12px; margin-bottom: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        .input-section { background: white; padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        input[type="text"] { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 8px; margin-bottom: 10px; font-size: 16px; outline: none; }
+        input[type="text"]:focus { border-color: #4CAF50; }
+        .add-btn { background: #4CAF50; color: white; padding: 12px; border: none; border-radius: 8px; cursor: pointer; width: 100%; font-size: 16px; font-weight: bold; }
+
+        .filter-section { display: flex; gap: 8px; margin-bottom: 15px; justify-content: center; }
+        .filter-btn { padding: 8px 16px; border: 1px solid #4CAF50; background: white; color: #4CAF50; border-radius: 20px; cursor: pointer; font-size: 14px; }
+        .filter-btn.active { background: #4CAF50; color: white; }
+
+        .todo-list { background: white; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow: hidden; }
+        .todo-item { padding: 15px; border-bottom: 1px solid #f0f0f0; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
+        .todo-item:hover { background-color: #f9f9f9; }
+        .todo-item:last-child { border-bottom: none; }
+        .todo-text { flex: 1; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+
+        .delete-btn { background: #ffeded; color: #ff4d4f; padding: 6px 10px; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; }
+        .delete-btn:hover { background: #ff4d4f; color: white; }
+
+        .stats-section { margin-top: 15px; padding: 15px; background: #fff; border-radius: 12px; text-align: center; font-weight: bold; color: #555; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }

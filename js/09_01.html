@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>JavaScript 첫 걸음</title>
+</head>
+<body>
+
+ <button onclick="sayHello()">인사하기</button>
+ <p id="message"></p>
+ <h1>JavaScript와 함께하는 첫 번째 여행</h1>
+
+ <script> //주석: 자바스크립스 시작!
+
+ //함수를 생성한다.
+ function sayHello() {
+ document.getElementById('message').innerHTML = '안녕하세요! <BR> JavaScript입니다!';
+ //DOM          ID요소중에 찾아옴     HTML로 넣아라!
+ } // 함수 블럭 종료
+ </script>
+</body>
+</html>
+

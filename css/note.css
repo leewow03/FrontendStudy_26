@@ -1,0 +1,40 @@
+header { background: #1abc9c; color: white; padding: 0.5rem; text-align: center; font-size: 0.9rem; }
+nav { background: #16a085; padding: 0.3rem; }
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-site {
+    padding: 10px 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* 연한 흰색 줄로 변경해서 더 예쁘게 */
+    transition: 0.3s; /* 부드러운 변화 */
+
+}
+
+
+.nav-site:hover {s
+    background-color: #1abc9c; /* 배경색 변화 */
+    cursor: pointer;
+}
+
+
+.nav-site:last-child {
+    border-right: none;
+}
+
+.nav-site a {
+    color: white; /* 어두운 배경엔 흰색 글자! */
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+main { display: flex; max-width: 1000px; margin: 0 auto; padding: 1rem; gap: 1.5rem; }
+section { flex: 2; }
+aside { flex: 1; background: #ecf0f1; padding: 1rem; border-radius: 5px; }
+article { background: white; margin-bottom: 1rem; padding: 1rem; border: 1px solid #e0f2f1; border-radius: 3px; }
+footer { background: #16a085; color: white; text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.8rem; }

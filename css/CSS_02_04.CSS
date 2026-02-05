@@ -1,0 +1,16 @@
+/* 모든 p 태그를 파란색으로 */
+p {
+    color: blue !important; /* 우선순위를 강제로 높여서 테스트 */
+}
+
+/* highlight 클래스에 밑줄 추가 */
+.highlight {
+    font-size: 1.2em;
+    text-decoration: underline;
+    color: red; /* 적용 여부 확인을 위해 빨간색 추가 */
+}
+
+li {
+    margin-bottom: 5px;
+    list-style-type: square;
+}
