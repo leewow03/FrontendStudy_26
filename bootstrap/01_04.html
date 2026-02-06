@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부트스트랩 색상 테스트</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>부트스트랩 색상 시스템</h1>
+
+        <!-- 텍스트 색상 -->
+        <h2>텍스트 색상</h2>
+        <p class="text-primary">Primary 색상 텍스트</p>
+        <p class="text-success">Success 색상 텍스트</p>
+        <p class="text-danger">Danger 색상 텍스트</p>
+        <p class="text-warning">Warning 색상 텍스트</p>
+
+        <!-- 배경 색상 -->
+        <h2>배경 색상</h2>
+        <div class="bg-primary text-white p-3 mb-2">Primary 배경</div>
+        <div class="bg-success text-white p-3 mb-2">Success 배경</div>
+        <div class="bg-danger text-white p-3 mb-2">Danger 배경</div>
+        <div class="bg-warning text-dark p-3 mb-2">Warning 배경</div>
+    </div>
+        <div class="container mt-5">
+        <!-- 알림 메시지들 -->
+        <div class="alert alert-success" role="alert">
+            <strong>성공!</strong> 회원가입이 완료되었습니다.
+        </div>
+
+        <div class="alert alert-danger" role="alert">
+            <strong>오류!</strong> 비밀번호가 일치하지 않습니다.
+        </div>
+
+        <div class="alert alert-warning" role="alert">
+            <strong>주의!</strong> 세션이 곧 만료됩니다.
+        </div>
+
+        <!-- 버튼들 -->
+        <div class="mb-4">
+            <button class="btn btn-primary me-2">메인 버튼</button>
+            <button class="btn btn-success me-2">저장</button>
+            <button class="btn btn-danger me-2">삭제</button>ㅁ
+            <button class="btn btn-warning me-2">수정</button>
+        </div>
+
+        <!-- 배지(Badge) -->
+        <p>
+            상태: <span class="badge bg-success">온라인</span>
+            알림: <span class="badge bg-danger">5</span>
+            등급: <span class="badge bg-primary">프리미엄</span>
+        </p>
+    </div>
+    <div class="container mt-5">
+        <!-- 그라데이션 효과 -->
+        <div class="bg-primary bg-gradient text-white p-4 mb-3 rounded">
+            그라데이션이 적용된 Primary 배경
+        </div>
+
+        <!-- 투명도가 적용된 색상 -->
+        <div class="bg-success bg-opacity-25 p-3 mb-3 rounded">
+            25% 투명도가 적용된 Success 배경
+        </div>
+
+        <div class="bg-danger bg-opacity-50 text-white p-3 mb-3 rounded">
+            50% 투명도가 적용된 Danger 배경
+        </div>
+
+        <!-- 테두리 색상 -->
+        <div class="border border-primary border-3 p-3 mb-3">
+            Primary 색상 테두리
+        </div>
+
+        <div class="border border-success border-2 bg-success bg-opacity-10 p-3">
+            Success 색상 테두리와 연한 배경
+        </div>
+    </div>
+
+</body>
+</html>

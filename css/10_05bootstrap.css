@@ -1,0 +1,17 @@
+ .todo-item {
+            cursor: move;
+            transition: all 0.3s;
+        }
+        .todo-item:hover {
+            background-color: #f8f9fa;
+        }
+        .todo-item.dragging {
+            opacity: 0.5;
+        }
+        .todo-item.completed .todo-text {
+            text-decoration: line-through;
+            color: #6c757d;
+        }
+        .drag-over {
+            border-top: 3px solid #0d6efd;
+        }

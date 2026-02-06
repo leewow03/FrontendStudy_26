@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko" data-bs-theme="light" id="html-theme">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다크 모드 구현</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 부드러운 테마 전환 효과 */
+:root {
+    --transition-duration: 0.1s;
+}
+
+* {
+    transition: background-color var(--transition-duration) ease,
+                color var(--transition-duration) ease,
+                border-color var(--transition-duration) ease;
+}
+
+/* 커스텀 테마 전환 버튼 스타일 */
+.theme-toggle-btn {
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.theme-toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 다크 모드 전용 스타일 */
+[data-bs-theme="dark"] .custom-dark-card {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border: 1px solid #4a5568;
+}
+
+[data-bs-theme="light"] .custom-dark-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: 1px solid #e2e8f0;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">테마 전환 데모</h3>
+                        <button class="btn btn-outline-primary" id="theme-toggle">
+                            🌙 다크 모드
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">다크 모드 테스트</h5>
+                        <p class="card-text">
+                            이 카드는 테마에 따라 자동으로 색상이 변경됩니다.
+                            버튼을 클릭해서 다크/라이트 모드를 전환해보세요!
+                        </p>
+                        <div class="alert alert-info">
+                            <strong>팁:</strong> 부트스트랩의 모든 컴포넌트가 자동으로 테마를 따릅니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    // 테마 전환 기능 구현
+class ThemeManager {
+    constructor() {
+        this.htmlElement = document.getElementById('html-theme');
+        this.toggleButton = document.getElementById('theme-toggle');
+        this.currentTheme = 'light';
+
+        // 초기화
+        this.init();
+    }
+
+    init() {
+        // 저장된 테마 불러오기
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        this.setTheme(savedTheme);
+
+        // 버튼 이벤트 연결
+        this.toggleButton.addEventListener('click', () => {
+            this.toggleTheme();
+        });
+
+        // 시스템 테마 변경 감지
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                this.setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    }
+
+    setTheme(theme) {
+        this.currentTheme = theme;
+        this.htmlElement.setAttribute('data-bs-theme', theme);
+        this.updateButtonText();
+
+        // 테마 저장
+        localStorage.setItem('theme', theme);
+    }
+
+    toggleTheme() {
+        const newTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.setTheme(newTheme);
+    }
+
+    updateButtonText() {
+        const icon = this.currentTheme === 'light' ? '🌙' : '☀️';
+        const text = this.currentTheme === 'light' ? '다크 모드' : '라이트 모드';
+        this.toggleButton.innerHTML = `${icon} ${text}`;
+    }
+}
+
+// 페이지 로드 시 테마 매니저 초기화
+document.addEventListener('DOMContentLoaded', () => {
+    new ThemeManager();
+});
+</script>
+</body>
+</html>
+
+<!--
+테마 매니저 기준
+[입사: 탄생]
+1. 📦 준비물 (Constructor) : 업무 환경 세팅
+   └── 🛠️ 도구 확보: HTML(TV) & 버튼(리모컨) 위치 파악
+   └── 📝 초기 메모: "일단 현재 상태는 Light!" (this.currentTheme)
+
+[출근: 각성]
+2. 📡 감시망 (Init) : 업무 루틴 활성화
+   ├── 📖 과거 기억 불러오기: (localStorage) "어제 무슨 색이었지?"
+   ├── 🎨 첫 화면 세팅: 불러온 기억으로 즉시 옷 갈아입히기 (setTheme)
+   └── 👂 감시 센서 부착: (addEventListener) "클릭 소리 들리나 감시 시작!"
+
+[상시: 활동]
+3. 🛠️ 매뉴얼 (Methods) : 사건 발생 시 대처 (무한 반복)
+   ├── 🔄 1단계 [판단]: (Toggle) "라이트면 다크로, 다크면 라이트로!"
+   ├── 🎨 2단계 [적용]: (Set) HTML에 문신 새기기 + 부트스트랩 색 변경
+   ├── 📝 3단계 [기록]: (Save) 바뀐 테마를 다시 메모장에 적기
+   └── ☀️ 4단계 [보고]: (Update) 버튼 속 글자와 이모지 갈아 끼우기
+
+*1단계(Constructor)**와 **2단계(Init)**는
+웹페이지가 켜질 때 딱 한 번만 일어납니다. (파이썬의 설정 단계)
+
+**3단계(Methods)**는 사용자가 버튼을 누를 때마다 수백 번이고 다시 실행되는 '진짜 일'입니다.
+(파이썬의 while 루프 안의 조건문 실행)
+ -->

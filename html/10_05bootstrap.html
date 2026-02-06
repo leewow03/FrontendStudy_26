@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할일 관리 앱</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/10_05bootstrap.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/10_05bootstrap.js" defer></script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                        <h3 class="mb-0">📅 할일 관리</h3>
+                        <span id="current-date" class="badge bg-white text-primary fw-normal p-2"></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- 입력 영역 -->
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1 small text-muted px-1">
+                            <span id="current-date2"></span>
+                            <span id="current-time" class="fw-bold text-primary"></span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="todoInput" class="form-control"
+                                   placeholder="새로운 할일을 입력하세요..."
+                                   aria-label="할일 입력">
+                            <button class="btn btn-primary" id="addBtn">추가</button>
+                        </div>
+                    </div>
+                    <!-- 필터 버튼 -->
+                    <div class="btn-group mb-3 w-100" role="group">
+                        <!--bootstrap 변수 btn = 버튼 ,btn-outline-secondary = 태두리만 선,secondary: 회색(보조 색상),active= 현재상태 표시-->
+                        <button type="button" class="btn btn-outline-secondary active" data-filter="all">
+                            전체
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" data-filter="active">
+                            진행중
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" data-filter="completed">
+                            완료
+                        </button>
+                    </div>
+
+                    <!-- 할일 목록 -->
+                    <div class="list-group" id="todoList">
+                        <!-- 동적으로 생성됩니다 -->
+                    </div>
+
+                    <!-- 통계 정보 -->
+                    <div class="mt-3 text-muted small">
+                        <span>전체: <strong id="totalCount">0</strong></span> |
+                        <span>진행중: <strong id="activeCount">0</strong></span> |
+                        <span>완료: <strong id="completedCount">0</strong></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
