@@ -1,0 +1,44 @@
+css 용어정리
+
+
+규칙 구조: 선택자 { 속성: 값; }
+
+Margin : 박스의 바깥쪽
+Padding : 박스의 안쪽
+
+ my_project/
+├── main.py (파이썬 코드)
+├── index.html (HTML 파일)
+└── static/ (정적 파일들을 모아두는 곳)
+    └── css/
+        └── style.css (디자인 코드)
+주석 /* */
+
+인라인
+파일
+내부 파일
+순으로 중요도
+
+
+ link 사용시 경로 상위 폴더로 명확하게 지정해줄것
+EX) <link rel="stylesheet" href = "../css/CSS_02_01.CSS">
+</body>
+</html>
+
+자손 선택자 (A B): A 안의 모든 B 요소
+자식 선택자 (A > B): A의 직접 자식인 B 요소만
+인접 형제 (A + B): A 바로 다음의 B 요소
+일반 형제 (A ~ B): A 이후의 모든 B 형제 요소
+
+구분,선택자,설명,핵심 포인트
+동적
+(Dynamic)
+:hover,마우스 커서를 올렸을 때,반응형 UI의 기본
+:active,요소를 클릭(누르고)하고 있을 때,클릭 피드백
+:focus,포커스가 맞춰졌을 때 (Input 등),접근성 및 입력 강조
+구조적
+(Structural)
+:first-child,부모의 첫 번째 자식 요소,리스트의 시작
+:last-child,부모의 마지막 자식 요소,리스트의 끝
+:nth-child(n),부모의 n번째 자식 요소,특정 순서 지정 (1부터 시작)
+:nth-of-type(n),동일한 태그 중 n번째 요소,태그 종류별 순서
